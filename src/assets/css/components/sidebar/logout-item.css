@@ -1,0 +1,25 @@
+.logout-item {
+    grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding-inline-start: 2.5rem;
+  padding-block-end: 2.5rem;
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.logout-item .logout-avatar {
+  block-size: 3.75rem;
+  inline-size: 3.75rem;
+}
+
+.logout-item .logout-avatar img {
+  inline-size: 100%;
+  vertical-align: middle;
+}
+
+.logout-item {
+  font: var(--text1semibold);
+}

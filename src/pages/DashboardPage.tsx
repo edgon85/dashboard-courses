@@ -1,4 +1,4 @@
-import { SidebarHeader, SidebarItem } from '../components';
+import { LogoutItem, SidebarHeader, SidebarItem } from '../components';
 
 export const DashboardPage = () => {
   return (
@@ -8,10 +8,12 @@ export const DashboardPage = () => {
           <div className="sidebar">
             <div className="sidebar-content">
               <SidebarHeader />
-              <SidebarItem iconName="monitor" title={'Cursos'} />
-              <SidebarItem iconName="book" title="Clases" />
-              <SidebarItem iconName="box" title="Modulos" />
-              <SidebarItem iconName="logout" title="Logout" />
+              <div className="list-item">
+                <SidebarItem iconName="monitor" title={'Cursos'} />
+                <SidebarItem iconName="book" title="Clases" />
+                <SidebarItem iconName="box" title="Modulos" />
+              </div>
+              <LogoutItem />
             </div>
           </div>
           <main className="main">
