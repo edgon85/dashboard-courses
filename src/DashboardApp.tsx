@@ -1,6 +1,9 @@
+import { DashboardPage } from './pages';
 
 export const DashboardApp = () => {
   return (
-    <div>DashboardApp</div>
-  )
-}
+    <>
+      <DashboardPage />
+    </>
+  );
+};

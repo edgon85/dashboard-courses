@@ -1,0 +1,12 @@
+@import './header-sidebar.css';
+@import './sidebar-item.css';
+
+.sidebar {
+  overflow-y: auto;
+  grid-area: sidebar;
+  background-color: var(--white);
+}
+
+.sidebar-content {
+  /* border: 1px solid slateblue; */
+}

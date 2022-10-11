@@ -1,0 +1,9 @@
+.main {
+  border: 1px solid greenyellow;
+  grid-area: main;
+  overflow-y: auto;
+  background-color: var(--bg);
+  padding-inline-start: 3.125rem;
+}
+
+

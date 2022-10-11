@@ -1,0 +1,20 @@
+.header-sidebar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding-block: 3.25rem;
+  padding-inline-start: 2.5rem;
+}
+
+.logo-content {
+  border-radius: 50%;
+  block-size: 3rem;
+  inline-size: 3rem;
+  background-color: var(--primary);
+}
+
+.header-sidebar__title {
+  font: var(--text1semibold);
+}

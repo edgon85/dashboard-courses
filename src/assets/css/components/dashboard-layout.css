@@ -1,0 +1,19 @@
+@import './sidebar/sidebar.css';
+@import './main/main.css';
+
+.dashboard {
+  border: 1px solid red;
+  block-size: 100vh;
+  box-sizing: border-box;
+}
+
+.dashboard .dashboard-content {
+  block-size: inherit;
+  box-sizing: inherit;
+
+  display: grid;
+  
+  grid-template-columns: 345px 1fr;
+
+  grid-template-areas: 'sidebar main';
+}
