@@ -1,4 +1,4 @@
 .list-item {
-    grid-area: listItem;
-    overflow-y: scroll;
+  grid-area: listItem;
+  overflow-y: scroll;
 }
