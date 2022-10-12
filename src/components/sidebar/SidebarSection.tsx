@@ -1,23 +1,17 @@
-import { Sidebar, SidebarContent, SidebarList } from '../../styled-components';
-import { LogoutItem } from './LogoutItem';
-import { SidebarHeader } from './SidebarHeader';
-import { SidebarItem } from './SidebarItem';
+import { Sidebar, SidebarContent } from '../../styled-components';
+import { LogoutItem, SidebarHeader, SidebarListComponent } from './';
 
 export const SidebarSection = () => {
   return (
     <Sidebar>
-      {/* <div className="sidebar-content"> */}
       <SidebarContent>
+        {/* ···················· */}
         <SidebarHeader />
-        <SidebarList>
-          <SidebarItem iconName="monitor" title={'Cursos'} />
-          <SidebarItem iconName="book" title="Clases" />
-          <SidebarItem iconName="box" title="Modulos" />
-        </SidebarList>
-
+        {/* ···················· */}
+        <SidebarListComponent />
+        {/* ···················· */}
         <LogoutItem />
       </SidebarContent>
-      {/* </div> */}
     </Sidebar>
   );
 };
