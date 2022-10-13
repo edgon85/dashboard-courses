@@ -1,3 +1,11 @@
+import { SearchComponent } from '../../components';
+
 export const ClassroomPage = () => {
-  return <div>ClassroomPage</div>;
+  return (
+    <>
+      <p>Clases</p>
+      <br />
+      <SearchComponent searchTitle="clases" />
+    </>
+  );
 };

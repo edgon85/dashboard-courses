@@ -1,0 +1,23 @@
+.search-input {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding-block: 0.875rem;
+  padding-inline-start: 2.25rem;
+  padding-inline-end: 1.25rem;
+  background-color: var(--white);
+  border-radius: 2.5rem;
+  max-inline-size: 37.5rem;
+}
+
+.search-input .input {
+  flex: 1;
+  font: var(--text1regular);
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--gray);
+}

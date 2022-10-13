@@ -1,4 +1,4 @@
-import { Book, Box, LogOut, Monitor } from '../../assets/icons';
+import { Book, Box, LogOut, Monitor, SearchIcon } from '../../assets/icons';
 import { IconType } from '../../interfaces';
 
 export const Icon = ({ name, ...props }: IconType) => {
@@ -14,6 +14,9 @@ export const Icon = ({ name, ...props }: IconType) => {
     }
     case 'monitor': {
       return <Monitor {...props} />;
+    }
+    case 'search': {
+      return <SearchIcon {...props} />;
     }
 
     default:

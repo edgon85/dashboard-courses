@@ -1,3 +1,11 @@
+import { SearchComponent } from '../../components';
+
 export const CoursesPage = () => {
-  return <div>CursesPage</div>;
+  return (
+    <>
+      <p>CursesPage</p>
+      <br />
+      <SearchComponent searchTitle="curso" />
+    </>
+  );
 };
