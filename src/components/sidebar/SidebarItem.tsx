@@ -9,7 +9,8 @@ type SidebarItemProps = {
 
 export const SidebarItem = ({ iconName, name, path }: SidebarItemProps) => {
   const { pathname } = useLocation();
-  const isSelected = pathname === `/${path}`;
+  // const isSelected = pathname === `/${path}`;
+  const isSelected = pathname.includes(path);
 
   return (
     <>

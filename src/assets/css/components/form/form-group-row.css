@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block-start: 1.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-grow: 1;
+  max-inline-size: 48rem;
+}
+
+.form-group-row > * {
+  flex: 1;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.custom-file-upload {
+  font: var(--text1semibold);
+  padding-block: 0.8125rem;
+  padding-inline: 1.5rem;
+  border: 2px solid var(--black);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+

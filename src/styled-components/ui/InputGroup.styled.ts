@@ -18,3 +18,20 @@ export const Input = styled.input`
   padding-block: 0.75rem;
   padding-inline: 0.75rem;
 `;
+
+export const Select = styled.select`
+  background-color: var(--white);
+  border: none;
+  font: var(--text2regular);
+  padding-block: 0.75rem;
+  padding-inline: 0.75rem;
+`;
+export const TextArea = styled.textarea`
+  background-color: var(--white);
+  border: none;
+  font: var(--text2regular);
+  padding-block: 0.75rem;
+  padding-inline: 0.75rem;
+  block-size: 12.5rem;
+  resize: none;
+`;

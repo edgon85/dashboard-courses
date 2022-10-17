@@ -1,20 +1,13 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import {
-  ClassroomPage,
-  CoursesPage,
-  DashboardPage,
-  ModulesPage,
-} from '../pages';
+import { Route, Routes } from 'react-router-dom';
+import { DashboardRoutes } from '../dashboard';
 
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/cursos" element={<CoursesPage />} />
-      <Route path="/clases" element={<ClassroomPage />} />
-      <Route path="/modulos" element={<ModulesPage />} />
-      <Route path="/" element={<Navigate to="/cursos" />} />⁄
-      <Route path="*" element={<Navigate to="cursos" />} />
-      {/* </Route> */}
+      {/* Login y register */}
+
+      {/* Admin page */}
+      <Route path="/*" element={<DashboardRoutes />} />
     </Routes>
   );
 };

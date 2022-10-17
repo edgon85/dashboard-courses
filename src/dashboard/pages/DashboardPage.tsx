@@ -1,6 +1,6 @@
-import { MainLayout, SidebarSection } from '../components';
-import { AppRouter } from '../router/AppRouter';
-import { Layout, LayoutContent } from '../styled-components';
+import { MainLayout, SidebarSection } from '../../components';
+import { AppRouter } from '../../router/AppRouter';
+import { Layout, LayoutContent } from '../../styled-components';
 
 export const DashboardPage = () => {
   return (

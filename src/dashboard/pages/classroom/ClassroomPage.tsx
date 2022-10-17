@@ -1,5 +1,5 @@
-import { SearchComponent, TableClassroomComponent } from '../../components';
-import { Button, ButtonPrimary, Title } from '../../styled-components';
+import { SearchComponent, TableClassroomComponent } from '../../../components';
+import { Button, ButtonPrimary, Title } from '../../../styled-components';
 
 export const ClassroomPage = () => {
   return (
