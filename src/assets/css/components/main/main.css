@@ -1,9 +1,21 @@
 .main {
-  border: 1px solid greenyellow;
+  border: 5px solid greenyellow;
   grid-area: main;
   overflow-y: auto;
-  background-color: var(--bg);
+  background-color: red;
   padding-inline-start: 3.125rem;
 }
 
+.page-heade {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 2.625rem;
+  margin-block-end: 1.5rem;
+}
+
+.page-heade .actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 
