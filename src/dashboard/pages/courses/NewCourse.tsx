@@ -1,4 +1,7 @@
+import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from '../../../hooks';
+import { Course } from '../../../interfaces';
 import {
   ButtonPrimary,
   Button,
@@ -10,43 +13,90 @@ import {
   Title,
 } from '../../../styled-components';
 
+const initData: Course = {
+  name: '',
+  slug: '',
+  status: '',
+  professor: '',
+  hours: 0,
+  currencyCode: '',
+  image: '',
+  description: '',
+  module: '',
+};
+
 export const NewCourse = () => {
   const navigate = useNavigate();
+  const { formState, onInputChange, onSelectChange, onTextareaChange } =
+    useForm(initData);
+
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    console.log(formState);
+  };
 
   return (
     <>
       <Title>Nuevo curso</Title>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-group-row">
           <InputGroup>
             <Label>Nombre del curso</Label>
-            <Input type="text" placeholder="nombre del curso" />
+            <Input
+              type="text"
+              placeholder="nombre del curso"
+              name="name"
+              value={formState.name}
+              onChange={onInputChange}
+            />
           </InputGroup>
 
           <InputGroup>
             <Label>Slug</Label>
-            <Input type="text" placeholder="Slug" />
+            <Input
+              type="text"
+              placeholder="Slug"
+              name="slug"
+              value={formState.slug}
+              onChange={onInputChange}
+            />
           </InputGroup>
         </div>
 
         <div className="form-group-row">
           <InputGroup>
             <Label>Estatus</Label>
-            <Select>
-              <option value="">Draft</option>
-              <option value="">Review</option>
-              <option value="">Uploading</option>
-              <option value="">Published</option>
+            <Select
+              name="status"
+              onChange={onSelectChange}
+              defaultValue="default"
+            >
+              <option disabled value="default">
+                - Seleccione -
+              </option>
+              <option value="draft">Draft</option>
+              <option value="review">Review</option>
+              <option value="uploading">Uploading</option>
+              <option value="published">Published</option>
             </Select>
           </InputGroup>
 
           <InputGroup>
             <Label>Profesor</Label>
-            <Select>
-              <option value="">Sandra Mayer</option>
-              <option value="">Leonidas Esteban</option>
-              <option value="">Mariado Lopéz</option>
-              <option value="">Maria del Carmen Londoño</option>
+            <Select
+              name="professor"
+              onChange={onSelectChange}
+              defaultValue="default"
+            >
+              <option disabled value="default">
+                - Seleccione -
+              </option>
+              <option value="Sandra Mayer">Sandra Mayer</option>
+              <option value="Leonidas Esteban">Leonidas Esteban</option>
+              <option value="Mariado Lopéz">Mariado Lopéz</option>
+              <option value="Maria del Carmen Londoño">
+                Maria del Carmen Londoño
+              </option>
             </Select>
           </InputGroup>
         </div>
@@ -54,27 +104,52 @@ export const NewCourse = () => {
         <div className="form-group-row">
           <InputGroup>
             <Label>Duracion en horas</Label>
-            <Input type="text" placeholder="nombre del curso" />
+            <Input
+              type="text"
+              placeholder="nombre del curso"
+              name="hours"
+              value={formState.hours}
+              onChange={onInputChange}
+            />
           </InputGroup>
 
           <InputGroup>
             <Label>Modulo</Label>
-            <Input type="text" placeholder="Slug" />
+            <Input
+              type="text"
+              placeholder="Slug"
+              name="module"
+              value={formState.module}
+              onChange={onInputChange}
+            />
           </InputGroup>
         </div>
 
         <div className="form-group-row">
           <InputGroup>
             <Label>Precio</Label>
-            <Input type="text" placeholder="nombre del curso" />
+            <Input
+              type="text"
+              placeholder="nombre del curso"
+              name="currencyCode"
+              value={formState.currencyCode}
+              onChange={onInputChange}
+            />
           </InputGroup>
 
           <InputGroup>
             <Label>Código de moneda</Label>
-            <Select>
-              <option value="">USD</option>
-              <option value="">MXN</option>
-              <option value="">GTQ</option>
+            <Select
+              name="currencyCode"
+              onChange={onSelectChange}
+              defaultValue="default"
+            >
+              <option disabled value="default">
+                - Seleccione -
+              </option>
+              <option value="usd">USD</option>
+              <option value="mxn">MXN</option>
+              <option value="gtq">GTQ</option>
             </Select>
           </InputGroup>
         </div>
@@ -90,13 +165,17 @@ export const NewCourse = () => {
           <InputGroup>
             <Label>Descripción del curso</Label>
 
-            <TextArea></TextArea>
+            <TextArea
+              name="description"
+              defaultValue={formState.description}
+              onChange={onTextareaChange}
+            ></TextArea>
           </InputGroup>
         </div>
 
         <div className="form-actions">
           <Button onClick={() => navigate('/cursos')}>Cancelar</Button>
-          <ButtonPrimary>Guardar</ButtonPrimary>
+          <ButtonPrimary type="submit">Guardar</ButtonPrimary>
         </div>
       </form>
     </>
