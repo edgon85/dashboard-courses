@@ -9,3 +9,12 @@ export interface Course {
   slug: string;
   status: string;
 }
+
+
+export interface CourseState {
+  courses: Course[];
+}
+
+export type CourseContextProps = {
+  courseState: CourseState;
+};

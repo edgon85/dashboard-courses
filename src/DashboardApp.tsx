@@ -1,10 +1,13 @@
+import { BrowserRouter } from 'react-router-dom';
 import { DashboardPage } from './dashboard/pages';
 import { AppRouter } from './router/AppRouter';
 
 export const DashboardApp = () => {
   return (
     <>
-      <DashboardPage />
+      <BrowserRouter>
+        <DashboardPage />
+      </BrowserRouter>
       {/* <AppRouter /> */}
     </>
   );
