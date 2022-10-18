@@ -1,6 +1,6 @@
 import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from '../../../hooks';
+import { useCourse, useForm } from '../../../hooks';
 import { Course } from '../../../interfaces';
 import {
   ButtonPrimary,
@@ -14,6 +14,7 @@ import {
 } from '../../../styled-components';
 
 const initData: Course = {
+  id: '',
   name: '',
   slug: '',
   status: '',
@@ -23,16 +24,26 @@ const initData: Course = {
   image: '',
   description: '',
   module: '',
+  price: 0,
 };
 
 export const NewCourse = () => {
   const navigate = useNavigate();
   const { formState, onInputChange, onSelectChange, onTextareaChange } =
     useForm(initData);
+  const { addCourse } = useCourse();
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    console.log(formState);
+    let newCourse: Course = {
+      ...formState,
+      id: `${new Date().getTime()}`,
+      hours: Number(formState.hours),
+      price: Number(formState.price),
+    };
+
+    console.log(newCourse);
+    addCourse(newCourse);
   };
 
   return (
@@ -103,9 +114,9 @@ export const NewCourse = () => {
 
         <div className="form-group-row">
           <InputGroup>
-            <Label>Duracion en horas</Label>
+            <Label>Duración en horas</Label>
             <Input
-              type="text"
+              type="number"
               placeholder="nombre del curso"
               name="hours"
               value={formState.hours}
@@ -129,10 +140,10 @@ export const NewCourse = () => {
           <InputGroup>
             <Label>Precio</Label>
             <Input
-              type="text"
+              type="number"
               placeholder="nombre del curso"
-              name="currencyCode"
-              value={formState.currencyCode}
+              name="price"
+              value={formState.price}
               onChange={onInputChange}
             />
           </InputGroup>

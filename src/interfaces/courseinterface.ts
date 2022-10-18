@@ -1,4 +1,5 @@
 export interface Course {
+  id: string;
   description: string;
   module: string;
   currencyCode: string;
@@ -8,8 +9,8 @@ export interface Course {
   professor: string;
   slug: string;
   status: string;
+  price: number;
 }
-
 
 export interface CourseState {
   courses: Course[];
@@ -17,4 +18,5 @@ export interface CourseState {
 
 export type CourseContextProps = {
   courseState: CourseState;
+  addCourse: (course: Course) => void;
 };

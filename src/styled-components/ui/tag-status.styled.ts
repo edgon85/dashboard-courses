@@ -40,4 +40,6 @@ export const TagStatus = styled.span<SpanStyledProps>`
   block-size: 3rem;
   inline-size: 6.875rem;
   border-radius: 2.5rem;
+  gap: 0.2rem;
+  text-transform: capitalize;
 `;

@@ -1,7 +1,12 @@
 import image from '../../assets/images/image1.png';
+import { Course } from '../../interfaces';
 import { TableText, TagStatus } from '../../styled-components';
 
-export const TableRow = () => {
+type TableRowProps = {
+  course: Course;
+};
+
+export const TableRow = ({ course }: TableRowProps) => {
   return (
     <>
       <div className="data-table__row row-selected">
@@ -10,23 +15,28 @@ export const TableRow = () => {
         </span>
         <span className="td-img-title">
           <img src={image} alt="" />
-          <TableText>Curso de introducción al desarrollo web</TableText>
+          <TableText>{course.name}</TableText>
         </span>
         <span>
-          <TableText>css-grid-layout-interfaces</TableText>
+          <TableText>{course.slug}</TableText>
         </span>
         <span>
           <TableText>
-            <TagStatus tipo="published">Published</TagStatus>{' '}
+            <TagStatus tipo={course.status}>{course.status}</TagStatus>
           </TableText>
         </span>
         <span>
           <TableText>
-            <TagStatus tipo="dollar">50 USD</TagStatus>
+            <TagStatus tipo="dollar">
+              {course.price}
+              <span style={{ textTransform: 'uppercase' }}>
+                {course.currencyCode}
+              </span>
+            </TagStatus>
           </TableText>
         </span>
         <span>
-          <TableText>10 hr</TableText>
+          <TableText>{course.hours} hr</TableText>
         </span>
       </div>
     </>

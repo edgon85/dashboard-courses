@@ -1,8 +1,10 @@
 import { Course, CourseState } from '../../interfaces';
 
-type CourseAction =
+/* type CourseAction =
   | { type: 'addCourse'; payload: Course }
-  | { type: 'toggleTodo'; payload: { id: string } };
+  | { type: 'toggleTodo'; payload: { id: string } }; */
+type CourseAction =
+  | { type: 'addCourse'; payload: Course };
 
 export const courseReducer = (
   state: CourseState,

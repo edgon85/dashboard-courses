@@ -1,7 +1,12 @@
+import { useCourse } from '../../hooks';
 import { TableText } from '../../styled-components';
 import { TableRow } from './TableRow';
 
 export const TableClassroomComponent = () => {
+  const { courses } = useCourse();
+
+  console.log(courses);
+
   return (
     <>
       <div className="data-table">
@@ -25,8 +30,11 @@ export const TableClassroomComponent = () => {
             <TableText>Duración</TableText>
           </span>
         </div>
-        <TableRow />
-        <TableRow />
+        {courses.map((course) => (
+          <TableRow key={course.id} course={course} />
+        ))}
+        {/* <TableRow />
+        <TableRow /> */}
       </div>
     </>
   );
