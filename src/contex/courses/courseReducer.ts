@@ -22,7 +22,9 @@ export const courseReducer = (
     case 'addCourseSelected':
       return {
         ...state,
-        coursesSelected: [...state.coursesSelected, action.payload],
+        coursesSelected: [
+          ...new Set([...state.coursesSelected, action.payload]),
+        ],
       };
 
     case 'removeCourseSelected':

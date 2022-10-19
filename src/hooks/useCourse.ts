@@ -17,8 +17,8 @@ export const useCourse = (courseSelected?: boolean) => {
     ...courseState,
 
     addCourse,
-    /*     addCourseSelected,
-    removeCourseSelected, */
+    addCourseSelected,
+    removeCourseSelected,
 
     selectCourse,
   };
