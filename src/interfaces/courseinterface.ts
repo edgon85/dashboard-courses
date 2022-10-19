@@ -12,11 +12,14 @@ export interface Course {
   price: number;
 }
 
-export interface CourseState {
+export interface CourseInitState {
   courses: Course[];
+  coursesSelected: number[];
 }
 
 export type CourseContextProps = {
-  courseState: CourseState;
+  courseState: CourseInitState;
   addCourse: (course: Course) => void;
+  addCourseSelected: (id: number) => void;
+  removeCourseSelected: (id: number) => void;
 };

@@ -3,9 +3,7 @@ import { TableText } from '../../styled-components';
 import { TableRow } from './TableRow';
 
 export const TableClassroomComponent = () => {
-  const { courses } = useCourse();
-
-  console.log(courses);
+  const { courses, coursesSelected } = useCourse();
 
   return (
     <>
@@ -30,11 +28,15 @@ export const TableClassroomComponent = () => {
             <TableText>Duración</TableText>
           </span>
         </div>
-        {courses.map((course) => (
-          <TableRow key={course.id} course={course} />
-        ))}
-        {/* <TableRow />
-        <TableRow /> */}
+        {/* {courses.map((course) => (
+          <TableRow key={course.id} course={course} isSelected={true} />
+        ))} */}
+        {courses.map((course) => {
+          const isSelected = coursesSelected.includes(parseInt(course.id));
+          return (
+            <TableRow key={course.id} course={course} isSelected={isSelected} />
+          );
+        })}
       </div>
     </>
   );
