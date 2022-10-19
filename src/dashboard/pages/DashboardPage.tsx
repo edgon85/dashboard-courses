@@ -1,5 +1,4 @@
-import { MainLayout, SidebarSection } from '../../components';
-import { AppRouter } from '../../router/AppRouter';
+import { MainLayout, ModalDelete, SidebarSection } from '../../components';
 import { Layout, LayoutContent } from '../../styled-components';
 
 export const DashboardPage = () => {
@@ -13,6 +12,7 @@ export const DashboardPage = () => {
         {/* <AppRouter /> */}
         {/* ·················· */}
       </LayoutContent>
+      <ModalDelete />
     </Layout>
   );
 };

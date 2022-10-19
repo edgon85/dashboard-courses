@@ -1,6 +1,7 @@
 @import './sidebar/sidebar.css';
 @import './main/main.css';
 @import './table/table.css';
+@import './modal/modal.css';
 
 .dashboard {
   border: 1px solid red;

@@ -1,11 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { SearchComponent, TableClassroomComponent } from '../../../components';
-import { useCourse } from '../../../hooks';
+import { useCourse, useModal } from '../../../hooks';
 import { Button, ButtonPrimary, Title } from '../../../styled-components';
 
 export const CoursesPage = () => {
   const navigate = useNavigate();
   const { courses, coursesSelected } = useCourse();
+  const { toogleModal } = useModal();
+
+  const handleOpenModalDelete = () => {
+    toogleModal();
+  };
 
   return (
     <>
@@ -14,7 +19,7 @@ export const CoursesPage = () => {
         <Title>Todos los cursos ({courses.length})</Title>
         <div className="actions">
           {coursesSelected.length !== 0 && (
-            <Button>
+            <Button onClick={handleOpenModalDelete}>
               Eliminar ({coursesSelected.length}) curso
               {coursesSelected.length <= 1 ? '' : 's'}
             </Button>
