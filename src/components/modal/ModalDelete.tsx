@@ -1,8 +1,38 @@
-import { useModal } from '../../hooks';
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useCourse, useModal } from '../../hooks';
+import { Course } from '../../interfaces';
 import { Button, ButtonPrimary } from '../../styled-components';
+
+const filter = (data: number[], data2: Course[]): [] => {
+  let dataToRetun: any = [];
+  data.forEach((course) => {
+    data2.filter((item: Course) => {
+      if (item.id === `${course}`) {
+        dataToRetun.push(item);
+      }
+    });
+  });
+
+  return dataToRetun;
+};
 
 export const ModalDelete = () => {
   const { isModalOpen, toogleModal } = useModal();
+  const { courses, coursesSelected } = useCourse();
+  // const [itemToDelete, setItemToDelete] = useState<Course[]>([]);
+
+  let itemToDelete = useMemo(
+    () => filter(coursesSelected, courses),
+    [isModalOpen]
+  );
+
+  const handleDeleteCourses = () => {
+    console.log('Si eliminar');
+  };
+
+  const handleButtonCancel = () => {
+    toogleModal();
+  };
 
   return (
     <>
@@ -11,14 +41,13 @@ export const ModalDelete = () => {
           <h3>¿Deseas eliminar los cursos seleccionados?</h3>
           <p>Estas a punto de eliminar los siguientes cursos:</p>
           <ol>
-            <li>Curso de CSS Grid Layout e Interfaces</li>
-            <li>Curso esencial de JavaScript y el DOM</li>
+            {itemToDelete.map((item: Course) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
           </ol>
           <div className="modal-actions">
-            <Button>Eliminar</Button>
-            <ButtonPrimary onClick={() => toogleModal()}>
-              Cancelar
-            </ButtonPrimary>
+            <Button onClick={handleDeleteCourses}>Eliminar</Button>
+            <ButtonPrimary onClick={handleButtonCancel}>Cancelar</ButtonPrimary>
           </div>
         </div>
       </div>
