@@ -42,8 +42,8 @@ export const NewCourse = () => {
       price: Number(formState.price),
     };
 
-    console.log(newCourse);
     addCourse(newCourse);
+    navigate('/cursos');
   };
 
   return (

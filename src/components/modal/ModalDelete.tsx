@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useCourse, useModal } from '../../hooks';
 import { Course } from '../../interfaces';
 import { Button, ButtonPrimary } from '../../styled-components';
@@ -18,7 +18,12 @@ const filter = (data: number[], data2: Course[]): [] => {
 
 export const ModalDelete = () => {
   const { isModalOpen, toogleModal } = useModal();
-  const { courses, coursesSelected } = useCourse();
+  const {
+    courses,
+    coursesSelected,
+    deleteCourseSelected,
+    removeCourseSelected,
+  } = useCourse();
   // const [itemToDelete, setItemToDelete] = useState<Course[]>([]);
 
   let itemToDelete = useMemo(
@@ -27,7 +32,11 @@ export const ModalDelete = () => {
   );
 
   const handleDeleteCourses = () => {
-    console.log('Si eliminar');
+    itemToDelete.forEach((item: Course) => {
+      deleteCourseSelected(item.id);
+      removeCourseSelected(Number(item.id));
+      toogleModal();
+    });
   };
 
   const handleButtonCancel = () => {

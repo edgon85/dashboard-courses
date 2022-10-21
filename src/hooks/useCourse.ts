@@ -2,8 +2,13 @@ import { useContext } from 'react';
 import { CourseContext } from '../contex';
 
 export const useCourse = (courseSelected?: boolean) => {
-  const { courseState, addCourse, addCourseSelected, removeCourseSelected } =
-    useContext(CourseContext);
+  const {
+    courseState,
+    addCourse,
+    addCourseSelected,
+    removeCourseSelected,
+    deleteCourseSelected,
+  } = useContext(CourseContext);
 
   const selectCourse = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedId = parseInt(event.target.value);
@@ -19,6 +24,7 @@ export const useCourse = (courseSelected?: boolean) => {
     addCourse,
     addCourseSelected,
     removeCourseSelected,
+    deleteCourseSelected,
 
     selectCourse,
   };

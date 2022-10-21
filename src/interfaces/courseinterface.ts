@@ -22,4 +22,5 @@ export type CourseContextProps = {
   addCourse: (course: Course) => void;
   addCourseSelected: (id: number) => void;
   removeCourseSelected: (id: number) => void;
+  deleteCourseSelected: (id: string) => void;
 };

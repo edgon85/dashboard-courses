@@ -27,6 +27,10 @@ export const CoursesProvider = ({ children }: props) => {
     dispatch({ type: 'removeCourseSelected', payload: CourseId });
   };
 
+  const deleteCourseSelected = (courseId: string) => {
+    dispatch({ type: 'deleteCourseSelected', payload: courseId });
+  };
+
   return (
     <CourseContext.Provider
       value={{
@@ -35,6 +39,7 @@ export const CoursesProvider = ({ children }: props) => {
         addCourse,
         addCourseSelected,
         removeCourseSelected,
+        deleteCourseSelected,
       }}
     >
       {children}

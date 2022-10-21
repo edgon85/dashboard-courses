@@ -6,7 +6,8 @@ import { Course, CourseInitState } from '../../interfaces';
 type CourseAction =
   | { type: 'addCourse'; payload: Course }
   | { type: 'addCourseSelected'; payload: number }
-  | { type: 'removeCourseSelected'; payload: number };
+  | { type: 'removeCourseSelected'; payload: number }
+  | { type: 'deleteCourseSelected'; payload: string };
 
 export const courseReducer = (
   state: CourseInitState,
@@ -33,6 +34,12 @@ export const courseReducer = (
         coursesSelected: state.coursesSelected.filter(
           (id) => id !== action.payload
         ),
+      };
+
+    case 'deleteCourseSelected':
+      return {
+        ...state,
+        courses: state.courses.filter((course) => course.id !== action.payload),
       };
 
     default:

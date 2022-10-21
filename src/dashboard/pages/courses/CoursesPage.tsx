@@ -16,7 +16,11 @@ export const CoursesPage = () => {
     <>
       <SearchComponent searchTitle="curso" />
       <div className="page-heade">
-        <Title>Todos los cursos ({courses.length})</Title>
+        {courses.length >= 1 ? (
+          <Title>Todos los cursos ({courses.length})</Title>
+        ) : (
+          <Title>No hay cursos agregados</Title>
+        )}
         <div className="actions">
           {coursesSelected.length !== 0 && (
             <Button onClick={handleOpenModalDelete}>
@@ -30,7 +34,7 @@ export const CoursesPage = () => {
         </div>
       </div>
 
-      <TableClassroomComponent />
+      {courses.length > 0 && <TableClassroomComponent />}
     </>
   );
 };
