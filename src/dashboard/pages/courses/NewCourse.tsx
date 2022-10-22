@@ -1,6 +1,6 @@
 import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCourse, useForm } from '../../../hooks';
+import { useCourse, useForm, useNotificationAlert } from '../../../hooks';
 import { Course } from '../../../interfaces';
 import {
   ButtonPrimary,
@@ -32,6 +32,7 @@ export const NewCourse = () => {
   const { formState, onInputChange, onSelectChange, onTextareaChange } =
     useForm(initData);
   const { addCourse } = useCourse();
+  const { setNotification, hideNotification } = useNotificationAlert();
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -44,6 +45,11 @@ export const NewCourse = () => {
 
     addCourse(newCourse);
     navigate('/cursos');
+    setNotification(
+      'Curso agregado',
+      `${formState.name} fue agregado correctamente.`
+    );
+    // hideNotification();
   };
 
   return (

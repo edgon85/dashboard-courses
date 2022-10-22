@@ -1,4 +1,9 @@
-import { MainLayout, ModalDelete, SidebarSection } from '../../components';
+import {
+  MainLayout,
+  ModalDelete,
+  NotificationAlert,
+  SidebarSection,
+} from '../../components';
 import { Layout, LayoutContent } from '../../styled-components';
 
 export const DashboardPage = () => {
@@ -13,6 +18,7 @@ export const DashboardPage = () => {
         {/* ·················· */}
       </LayoutContent>
       <ModalDelete />
+      <NotificationAlert />
     </Layout>
   );
 };
