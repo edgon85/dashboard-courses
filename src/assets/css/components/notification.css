@@ -1,17 +1,18 @@
 .notification {
-  position: absolute;
+  position: fixed;
   border: 1px solid var(--green);
   border-radius: 0.25rem;
   inset-block-start: 1.5rem;
-  inset-inline-end: -120%;
+
   inline-size: 22.25rem;
   background-color: var(--white);
   box-sizing: border-box;
 
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12),
     0px 3px 5px rgba(0, 0, 0, 0.2);
-  animation: SlideLeft 0.4s;
+  animation: SlideRight 1s;
   animation-fill-mode: forwards;
+  visibility: hidden;
 }
 
 @keyframes SlideLeft {
@@ -24,8 +25,8 @@
   }
 }
 
-.notification.exit {
-  animation: SlideRight 0.4s;
+.notification.show {
+  animation: SlideLeft 0.4s;
   animation-fill-mode: forwards;
 }
 
@@ -37,6 +38,10 @@
   100% {
     inset-inline-end: -120%;
   }
+}
+
+.hidden {
+  visibility: visible;
 }
 
 .notification-content {

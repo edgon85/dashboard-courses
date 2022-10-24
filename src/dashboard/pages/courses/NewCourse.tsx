@@ -49,7 +49,7 @@ export const NewCourse = () => {
       'Curso agregado',
       `${formState.name} fue agregado correctamente.`
     );
-    // hideNotification();
+    hideNotification();
   };
 
   return (
