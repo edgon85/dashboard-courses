@@ -1,6 +1,7 @@
 @import './sidebar/sidebar.css';
 @import './main/main.css';
 @import './table/table.css';
+@import './table/table-clases.css';
 @import './modal/modal.css';
 
 .dashboard {

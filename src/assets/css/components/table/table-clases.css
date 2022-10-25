@@ -1,0 +1,8 @@
+
+.table-class {
+  grid-template-columns: 3rem 1fr 1fr 1fr;
+}
+
+.row-class {
+  grid-template-columns: 3rem 1fr 1fr 1fr;
+}

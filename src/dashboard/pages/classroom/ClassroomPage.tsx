@@ -1,21 +1,58 @@
-import { SearchComponent, TableClassroomComponent } from '../../../components';
-import { Button, ButtonPrimary, Title } from '../../../styled-components';
+import { SearchComponent } from '../../../components';
+import { useClase } from '../../../hooks';
+import {
+  Button,
+  ButtonPrimary,
+  TableText,
+  Title,
+} from '../../../styled-components';
+import { RowTableClase } from './components';
 
 export const ClassroomPage = () => {
+  const { clases } = useClase();
+
   return (
     <>
       <div className="classroom__content">
         <SearchComponent searchTitle="clases" />
 
         <div className="page-heade">
-          <Title>Todos los cursos (5)</Title>
+          <Title>Todos las clases ({clases.length})</Title>
+
           <div className="actions">
-            <Button>Eliminar curso</Button>
-            <ButtonPrimary>Agregar curso</ButtonPrimary>
+            <Button>Eliminar</Button>
+
+            <ButtonPrimary onClick={() => console.log('Agregar nueva clase')}>
+              Agregar clase
+            </ButtonPrimary>
           </div>
         </div>
 
-        <TableClassroomComponent />
+        <div className="data-table">
+          <div className="data-table__head table-class">
+            <span className="text-box-content">
+              <input
+                type="checkbox"
+                disabled
+                /*          checked={isChecked}
+              onChange={selectAllCourses} */
+              />
+            </span>
+            <span>
+              <TableText>Nombre de la clase</TableText>
+            </span>
+            <span>
+              <TableText>Slug</TableText>
+            </span>
+            <span>
+              <TableText>Lesson path</TableText>
+            </span>
+          </div>
+          {/* ················································· */}
+          {clases.map((clase) => {
+            return <RowTableClase key={clase.id} {...clase} />;
+          })}
+        </div>
       </div>
     </>
   );

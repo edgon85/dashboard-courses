@@ -1,5 +1,6 @@
 .data-table {
   background-color: var(--white);
+  overflow-y: auto;
 }
 
 .data-table__head {
