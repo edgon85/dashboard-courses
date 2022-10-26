@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { SearchComponent } from '../../../components';
 import { useClase } from '../../../hooks';
 import {
@@ -10,6 +11,7 @@ import { RowTableClase } from './components';
 
 export const ClassroomPage = () => {
   const { clases } = useClase();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,7 +24,7 @@ export const ClassroomPage = () => {
           <div className="actions">
             <Button>Eliminar</Button>
 
-            <ButtonPrimary onClick={() => console.log('Agregar nueva clase')}>
+            <ButtonPrimary onClick={() => navigate('/clases/new')}>
               Agregar clase
             </ButtonPrimary>
           </div>

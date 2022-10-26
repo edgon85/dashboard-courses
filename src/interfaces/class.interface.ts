@@ -3,6 +3,8 @@ export interface Clase {
   name: string;
   slug: string;
   lessonPath: string;
+  status: string;
+  urlVideo: string;
 }
 
 export interface ClaseInitState {
@@ -11,4 +13,5 @@ export interface ClaseInitState {
 
 export type ClaseContextProps = {
   claseState: ClaseInitState;
+  addNewClase: (clase: Clase) => void;
 };
