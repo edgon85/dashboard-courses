@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { useCourse, useModal } from '../../hooks';
+import { useMemo, useState } from 'react';
+import { useClase, useCourse, useModal } from '../../hooks';
 import { Course } from '../../interfaces';
 import { Button, ButtonPrimary } from '../../styled-components';
 
@@ -17,14 +17,16 @@ const filter = (data: number[], data2: Course[]): [] => {
 };
 
 export const ModalDelete = () => {
-  const { isModalOpen, toogleModal } = useModal();
+  const { isModalOpen, toogleModal, typeDelete } = useModal();
   const {
     courses,
     coursesSelected,
     deleteCourseSelected,
     removeCourseSelected,
   } = useCourse();
-  // const [itemToDelete, setItemToDelete] = useState<Course[]>([]);
+  const { clasesSelected, deleteClase, removeSelectedClase } = useClase();
+
+  const [titles, setTitles] = useState({ title: '', subtitle: '' });
 
   let itemToDelete = useMemo(
     () => filter(coursesSelected, courses),
@@ -35,15 +37,70 @@ export const ModalDelete = () => {
     itemToDelete.forEach((item: Course) => {
       deleteCourseSelected(item.id);
       removeCourseSelected(Number(item.id));
-      toogleModal();
+      toogleModal('');
+    });
+  };
+
+  const handleDeleteClases = () => {
+    clasesSelected.forEach((item) => {
+      deleteClase(item);
+      removeSelectedClase(item);
+      toogleModal('');
     });
   };
 
   const handleButtonCancel = () => {
-    toogleModal();
+    toogleModal('');
   };
 
-  return (
+  switch (typeDelete) {
+    case 'course':
+      return (
+        <div className={`modal ${isModalOpen ? 'open' : ''}`}>
+          <div className="modal-content">
+            <h3>¿Deseas eliminar los cursos seleccionados?</h3>
+            <p>Estas a punto de eliminar los siguientes cursos:</p>
+            <ol>
+              {itemToDelete.map((item: Course) => (
+                <li key={item.id}>{item.name}</li>
+              ))}
+            </ol>
+            <div className="modal-actions">
+              <Button onClick={handleDeleteCourses}>Eliminar</Button>
+              <ButtonPrimary onClick={handleButtonCancel}>
+                Cancelar
+              </ButtonPrimary>
+            </div>
+          </div>
+        </div>
+      );
+
+    case 'clase':
+      return (
+        <div className={`modal ${isModalOpen ? 'open' : ''}`}>
+          <div className="modal-content">
+            <h3>¿Deseas eliminar las clases seleccionadas?</h3>
+            <p>Estas a punto de eliminar las siguientes clases:</p>
+            <ol>
+              {clasesSelected.map((item) => (
+                <li key={item.id}>{item.name}</li>
+              ))}
+            </ol>
+            <div className="modal-actions">
+              <Button onClick={handleDeleteClases}>Eliminar</Button>
+              <ButtonPrimary onClick={handleButtonCancel}>
+                Cancelar
+              </ButtonPrimary>
+            </div>
+          </div>
+        </div>
+      );
+
+    default:
+      return <></>;
+  }
+};
+/*   return (
     <>
       <div className={`modal ${isModalOpen ? 'open' : ''}`}>
         <div className="modal-content">
@@ -61,5 +118,4 @@ export const ModalDelete = () => {
         </div>
       </div>
     </>
-  );
-};
+  ); */

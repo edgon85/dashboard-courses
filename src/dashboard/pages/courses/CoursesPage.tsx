@@ -9,7 +9,7 @@ export const CoursesPage = () => {
   const { toogleModal } = useModal();
 
   const handleOpenModalDelete = () => {
-    toogleModal();
+    toogleModal('course');
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { SearchComponent } from '../../../components';
-import { useClase } from '../../../hooks';
+import { useClase, useModal } from '../../../hooks';
 import {
   Button,
   ButtonPrimary,
@@ -10,8 +10,9 @@ import {
 import { RowTableClase } from './components';
 
 export const ClassroomPage = () => {
-  const { clases } = useClase();
+  const { clases, clasesSelected } = useClase();
   const navigate = useNavigate();
+  const { toogleModal } = useModal();
 
   return (
     <>
@@ -22,7 +23,11 @@ export const ClassroomPage = () => {
           <Title>Todos las clases ({clases.length})</Title>
 
           <div className="actions">
-            <Button>Eliminar</Button>
+            {clasesSelected.length > 0 && (
+              <Button onClick={() => toogleModal('clase')}>
+                Eliminar ({clasesSelected.length}) clases
+              </Button>
+            )}
 
             <ButtonPrimary onClick={() => navigate('/clases/new')}>
               Agregar clase
@@ -33,12 +38,7 @@ export const ClassroomPage = () => {
         <div className="data-table">
           <div className="data-table__head table-class">
             <span className="text-box-content">
-              <input
-                type="checkbox"
-                disabled
-                /*          checked={isChecked}
-              onChange={selectAllCourses} */
-              />
+              <input type="checkbox" disabled />
             </span>
             <span>
               <TableText>Nombre de la clase</TableText>
@@ -52,7 +52,15 @@ export const ClassroomPage = () => {
           </div>
           {/* ················································· */}
           {clases.map((clase) => {
-            return <RowTableClase key={clase.id} {...clase} />;
+            const isClassInClaseSelected = clasesSelected.includes(clase);
+
+            return (
+              <RowTableClase
+                key={clase.id}
+                clase={clase}
+                isSelected={isClassInClaseSelected}
+              />
+            );
           })}
         </div>
       </div>

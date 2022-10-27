@@ -9,9 +9,13 @@ export interface Clase {
 
 export interface ClaseInitState {
   clases: Clase[];
+  clasesSelected: Clase[];
 }
 
 export type ClaseContextProps = {
   claseState: ClaseInitState;
   addNewClase: (clase: Clase) => void;
+  addSelectedClase: (clase: Clase) => void;
+  removeSelectedClase: (clase: Clase) => void;
+  deleteClase: (clase: Clase) => void;
 };

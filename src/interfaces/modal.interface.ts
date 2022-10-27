@@ -1,10 +1,11 @@
 export interface ModalInitState {
   isModalOpen: boolean;
+  typeDelete: string;
 }
 
 export type ModalContextProps = {
   modalState: ModalInitState;
-  toogleModal: () => void;
+  toogleModal: (typeDelete: string) => void;
 };
 
 /* this is for notification */

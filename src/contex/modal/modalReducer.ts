@@ -1,6 +1,8 @@
 import { ModalInitState } from '../../interfaces';
 
-type ModalActions = { type: 'openModal'; payload: boolean };
+type ModalActions =
+  | { type: 'openModal'; payload: { isModalOpen: boolean; typeDelete: string } }
+  | { type: 'typeDelete'; payload: string };
 
 export const modalReducer = (
   state: ModalInitState,
@@ -9,7 +11,9 @@ export const modalReducer = (
   switch (action.type) {
     case 'openModal':
       return {
-        isModalOpen: action.payload,
+        ...state,
+        isModalOpen: action.payload.isModalOpen,
+        typeDelete: action.payload.typeDelete,
       };
 
     default:

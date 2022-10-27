@@ -5,6 +5,7 @@ import { modalReducer } from './modalReducer';
 
 const INITIAL_STATE: ModalInitState = {
   isModalOpen: false,
+  typeDelete: '',
 };
 
 type props = {
@@ -14,8 +15,11 @@ type props = {
 export const ModalProvider = ({ children }: props) => {
   const [modalState, dispatch] = useReducer(modalReducer, INITIAL_STATE);
 
-  const toogleModal = () => {
-    dispatch({ type: 'openModal', payload: !modalState.isModalOpen });
+  const toogleModal = (typeDelete: string) => {
+    dispatch({
+      type: 'openModal',
+      payload: { isModalOpen: !modalState.isModalOpen, typeDelete: typeDelete },
+    });
   };
 
   return (
