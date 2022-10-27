@@ -1,7 +1,7 @@
 import { FormEvent } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { useClase, useForm } from '../../../../hooks';
+import { useClase, useForm, useNotificationAlert } from '../../../../hooks';
 import { Clase } from '../../../../interfaces';
 import {
   Button,
@@ -27,6 +27,7 @@ export const AddClasePage = () => {
   const navigate = useNavigate();
   const { formState, onInputChange, onSelectChange } = useForm(INIT_FORM);
   const { addNewClase } = useClase();
+  const { setNotification } = useNotificationAlert();
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -34,6 +35,7 @@ export const AddClasePage = () => {
       ...formState,
       id: `${new Date().getTime()}`,
     });
+    setNotification('Clase agregado', `${formState.name}`);
     navigate('/clases');
   };
 

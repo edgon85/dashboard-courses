@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useClase, useCourse, useModal } from '../../hooks';
+import { useClase, useCourse, useModal, useModulo } from '../../hooks';
 import { Course } from '../../interfaces';
 import { Button, ButtonPrimary } from '../../styled-components';
 
@@ -25,8 +25,7 @@ export const ModalDelete = () => {
     removeCourseSelected,
   } = useCourse();
   const { clasesSelected, deleteClase, removeSelectedClase } = useClase();
-
-  const [titles, setTitles] = useState({ title: '', subtitle: '' });
+  const { modulosSelected, removeSelectedModulo, deleteModule } = useModulo();
 
   let itemToDelete = useMemo(
     () => filter(coursesSelected, courses),
@@ -45,6 +44,14 @@ export const ModalDelete = () => {
     clasesSelected.forEach((item) => {
       deleteClase(item);
       removeSelectedClase(item);
+      toogleModal('');
+    });
+  };
+
+  const handleDeleteModulos = () => {
+    modulosSelected.forEach((item) => {
+      deleteModule(item);
+      removeSelectedModulo(item);
       toogleModal('');
     });
   };
@@ -88,6 +95,27 @@ export const ModalDelete = () => {
             </ol>
             <div className="modal-actions">
               <Button onClick={handleDeleteClases}>Eliminar</Button>
+              <ButtonPrimary onClick={handleButtonCancel}>
+                Cancelar
+              </ButtonPrimary>
+            </div>
+          </div>
+        </div>
+      );
+
+    case 'modulo':
+      return (
+        <div className={`modal ${isModalOpen ? 'open' : ''}`}>
+          <div className="modal-content">
+            <h3>¿Deseas eliminar los modulos seleccionados?</h3>
+            <p>Estas a punto de eliminar las siguientes modulos:</p>
+            <ol>
+              {modulosSelected.map((item) => (
+                <li key={item.id}>{item.name}</li>
+              ))}
+            </ol>
+            <div className="modal-actions">
+              <Button onClick={handleDeleteModulos}>Eliminar</Button>
               <ButtonPrimary onClick={handleButtonCancel}>
                 Cancelar
               </ButtonPrimary>

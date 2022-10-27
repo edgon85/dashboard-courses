@@ -1,4 +1,3 @@
-import { ChangeEvent } from 'react';
 import { useClase } from '../../../../hooks';
 import { Clase } from '../../../../interfaces';
 import { TableText } from '../../../../styled-components';
@@ -16,7 +15,7 @@ export const RowTableClase = ({ clase, isSelected }: props) => {
   };
 
   return (
-    <div key={clase.id} className="data-table__row row-class">
+    <div className="data-table__row row-class">
       <span className="text-box-content">
         <input
           type="checkbox"
