@@ -10,6 +10,6 @@ export const LayoutContent = styled.div`
   box-sizing: inherit;
 
   display: grid;
-  grid-template-columns: 345px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-areas: 'sidebar main';
 `;

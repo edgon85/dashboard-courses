@@ -6,23 +6,25 @@
 .data-table__head {
   border-block-end: 1px solid var(--gray2);
   display: grid;
-  grid-template-columns: 4rem 2fr 1fr repeat(3, 200px);
+  grid-template-columns: minmax(50px, .1fr) minmax(250px, 2fr) minmax(200px, 2fr) repeat(3, minmax(150px, 200px));
   grid-template-rows: 1fr;
   justify-items: start;
   align-items: center;
   block-size: 4.5rem;
   box-sizing: border-box;
+  column-gap: .2rem;
 }
 
 .data-table__row {
   display: grid;
-  grid-template-columns: 4rem 2fr 1fr repeat(3, 200px);
+  grid-template-columns: minmax(50px, .1fr) minmax(250px, 2fr) minmax(200px, 2fr) repeat(3, minmax(150px, 200px));
   grid-template-rows: 1fr;
   justify-items: start;
   align-items: center;
   block-size: 7rem;
   border-block-end: 1px solid var(--gray2);
   box-sizing: border-box;
+  column-gap: .2rem;
 }
 
 .data-table__row.row-selected{

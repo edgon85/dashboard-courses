@@ -16,6 +16,12 @@
   background-color: var(--primary);
 }
 
+.logo-content img{
+  width: 100%;
+  vertical-align: middle;
+}
+
 .header-sidebar__title {
   font: var(--text1semibold);
+  padding-inline-end: .5rem;
 }

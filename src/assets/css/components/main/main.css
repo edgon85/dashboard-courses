@@ -8,9 +8,11 @@
 
 .page-heade {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-block-start: 2.625rem;
   margin-block-end: 1.5rem;
+  gap: 1rem;
 }
 
 .page-heade .actions {
@@ -19,3 +21,10 @@
   gap: 1rem;
 }
 
+@media screen and (min-width: 1024px){
+  .page-heade{
+    flex-direction: row;
+    gap: 0;
+  }
+  
+}
