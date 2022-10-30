@@ -15,6 +15,10 @@ type props = {
 export const CoursesProvider = ({ children }: props) => {
   const [courseState, dispatch] = useReducer(courseReducer, INITIAL_STATE);
 
+  const loadCourses = () => {
+    dispatch({ type: 'loadCourses', payload: INITIAL_STATE.courses });
+  };
+
   const addCourse = (course: Course) => {
     dispatch({ type: 'addCourse', payload: course });
   };
@@ -31,6 +35,10 @@ export const CoursesProvider = ({ children }: props) => {
     dispatch({ type: 'deleteCourseSelected', payload: courseId });
   };
 
+  const fiterCourse = (query: string) => {
+    dispatch({ type: 'filterCourse', payload: query });
+  };
+
   return (
     <CourseContext.Provider
       value={{
@@ -40,6 +48,8 @@ export const CoursesProvider = ({ children }: props) => {
         addCourseSelected,
         removeCourseSelected,
         deleteCourseSelected,
+        fiterCourse,
+        loadCourses,
       }}
     >
       {children}

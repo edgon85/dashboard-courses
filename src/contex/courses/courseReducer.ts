@@ -4,7 +4,9 @@ import { Course, CourseInitState } from '../../interfaces';
   | { type: 'addCourse'; payload: Course }
   | { type: 'toggleTodo'; payload: { id: string } }; */
 type CourseAction =
+  | { type: 'loadCourses'; payload: Course[] }
   | { type: 'addCourse'; payload: Course }
+  | { type: 'filterCourse'; payload: string }
   | { type: 'addCourseSelected'; payload: number }
   | { type: 'removeCourseSelected'; payload: number }
   | { type: 'deleteCourseSelected'; payload: string };
@@ -14,6 +16,12 @@ export const courseReducer = (
   action: CourseAction
 ): CourseInitState => {
   switch (action.type) {
+    case 'loadCourses':
+      return {
+        ...state,
+        courses: action.payload,
+      };
+
     case 'addCourse':
       return {
         ...state,
@@ -40,6 +48,14 @@ export const courseReducer = (
       return {
         ...state,
         courses: state.courses.filter((course) => course.id !== action.payload),
+      };
+
+    case 'filterCourse':
+      return {
+        ...state,
+        courses: state.courses.filter((course) =>
+          course.name.toLowerCase().includes(action.payload.toLowerCase())
+        ),
       };
 
     default:

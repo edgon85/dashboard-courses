@@ -8,6 +8,8 @@ export const useModulo = () => {
     addModuleSelected,
     removeSelectedModulo,
     deleteModule,
+    filterModulo,
+    loadModulos,
   } = useContext(ModuloContext);
 
   return {
@@ -18,5 +20,7 @@ export const useModulo = () => {
     addModuleSelected,
     removeSelectedModulo,
     deleteModule,
+    filterModulo,
+    loadModulos,
   };
 };

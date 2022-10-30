@@ -18,4 +18,6 @@ export type ClaseContextProps = {
   addSelectedClase: (clase: Clase) => void;
   removeSelectedClase: (clase: Clase) => void;
   deleteClase: (clase: Clase) => void;
+  loadClases: () => void;
+  filterClase: (query: string) => void;
 };

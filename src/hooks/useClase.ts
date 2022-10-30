@@ -8,6 +8,8 @@ export const useClase = () => {
     addSelectedClase,
     removeSelectedClase,
     deleteClase,
+    loadClases,
+    filterClase,
   } = useContext(ClaseContext);
 
   return {
@@ -18,5 +20,7 @@ export const useClase = () => {
     addSelectedClase,
     removeSelectedClase,
     deleteClase,
+    loadClases,
+    filterClase,
   };
 };

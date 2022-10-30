@@ -16,6 +16,10 @@ type props = {
 export const ClaseProvider = ({ children }: props) => {
   const [claseState, dispatch] = useReducer(claseReducer, INIT_STATE);
 
+  const loadClases = () => {
+    dispatch({ type: 'loadClases', payload: CLASSES_DATA });
+  };
+
   const addNewClase = (clase: Clase) => {
     dispatch({ type: 'addClase', payload: clase });
   };
@@ -32,14 +36,20 @@ export const ClaseProvider = ({ children }: props) => {
     dispatch({ type: 'deleteClases', payload: clase });
   };
 
+  const filterClase = (query: string) => {
+    dispatch({ type: 'filterClase', payload: query });
+  };
+
   return (
     <ClaseContext.Provider
       value={{
-        claseState,
         addNewClase,
         addSelectedClase,
-        removeSelectedClase,
+        claseState,
         deleteClase,
+        filterClase,
+        loadClases,
+        removeSelectedClase,
       }}
     >
       {children}

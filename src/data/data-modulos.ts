@@ -5,6 +5,7 @@ export const MODULOS_DATA = [
     title: '',
     slug: 'Bienvenida',
     order: 1,
+    modulo: '',
   },
   {
     id: '2',
@@ -12,6 +13,7 @@ export const MODULOS_DATA = [
     title: '',
     slug: 'Bienvenida',
     order: 1,
+    modulo: '',
   },
   {
     id: '3',
@@ -19,5 +21,6 @@ export const MODULOS_DATA = [
     title: '',
     slug: 'Bienvenida',
     order: 1,
+    modulo: '',
   },
 ];

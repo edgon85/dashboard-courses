@@ -8,6 +8,8 @@ export const useCourse = (courseSelected?: boolean) => {
     addCourseSelected,
     removeCourseSelected,
     deleteCourseSelected,
+    fiterCourse,
+    loadCourses,
   } = useContext(CourseContext);
 
   const selectCourse = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,5 +29,7 @@ export const useCourse = (courseSelected?: boolean) => {
     deleteCourseSelected,
 
     selectCourse,
+    fiterCourse,
+    loadCourses,
   };
 };

@@ -15,6 +15,10 @@ type props = {
 export const ModuloProvider = ({ children }: props) => {
   const [moduloState, dispatch] = useReducer(moduloReducer, INIT_STATE);
 
+  const loadModulos = () => {
+    dispatch({ type: 'loadModulos', payload: MODULOS_DATA });
+  };
+
   const addModule = (modulo: Modulo) => {
     dispatch({ type: 'addModulo', payload: modulo });
   };
@@ -31,6 +35,10 @@ export const ModuloProvider = ({ children }: props) => {
     dispatch({ type: 'deleteModuloSelected', payload: modulo });
   };
 
+  const filterModulo = (query: string) => {
+    dispatch({ type: 'filterModulo', payload: query });
+  };
+
   return (
     <ModuloContext.Provider
       value={{
@@ -39,6 +47,8 @@ export const ModuloProvider = ({ children }: props) => {
         addModuleSelected,
         removeSelectedModulo,
         deleteModule,
+        loadModulos,
+        filterModulo,
       }}
     >
       {children}

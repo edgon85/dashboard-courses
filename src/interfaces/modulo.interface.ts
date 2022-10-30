@@ -4,6 +4,7 @@ export interface Modulo {
   slug: string;
   modulo: string;
   order: number;
+  title: string;
 }
 
 export interface ModuloInitState {
@@ -17,4 +18,6 @@ export type ModuloContextProps = {
   addModuleSelected: (modulo: Modulo) => void;
   removeSelectedModulo: (modulo: Modulo) => void;
   deleteModule: (modulo: Modulo) => void;
+  loadModulos: () => void;
+  filterModulo: (query: string) => void;
 };
