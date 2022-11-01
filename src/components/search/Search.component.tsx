@@ -46,7 +46,7 @@ export const SearchComponent = ({ searchTitle }: SearchProps) => {
 
   return (
     <>
-      <div className="search-input">
+      <section className="search-input" aria-label="search data">
         <Icon name="search" size="24" color="var(--gray)" />
         <form onSubmit={handleSubmit}>
           <input
@@ -58,7 +58,7 @@ export const SearchComponent = ({ searchTitle }: SearchProps) => {
             placeholder={`Buscar ${searchTitle}...`}
           />
         </form>
-      </div>
+      </section>
     </>
   );
 };

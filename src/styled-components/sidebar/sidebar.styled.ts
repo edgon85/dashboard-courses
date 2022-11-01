@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Sidebar = styled.div`
+export const Sidebar = styled.section.attrs({
+  'aria-label': 'Sidebar region',
+})`
   overflow-y: auto;
   grid-area: sidebar;
   background-color: var(--white);
@@ -18,7 +20,9 @@ export const SidebarContent = styled.div`
     'footer';
 `;
 
-export const SidebarList = styled.div`
+export const SidebarList = styled.nav.attrs({
+  'aria-labelledby': 'sidebar-navigation',
+})`
   grid-area: listItem;
   overflow-y: scroll;
 `;

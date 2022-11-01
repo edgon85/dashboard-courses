@@ -15,7 +15,7 @@ export const CoursesPage = () => {
   return (
     <>
       <SearchComponent searchTitle="curso" />
-      <div className="page-heade">
+      <section className="page-heade" aria-labelledby="title-content">
         {courses.length >= 1 ? (
           <Title>Todos los cursos ({courses.length})</Title>
         ) : (
@@ -28,11 +28,14 @@ export const CoursesPage = () => {
               {coursesSelected.length <= 1 ? '' : 's'}
             </Button>
           )}
-          <ButtonPrimary onClick={() => navigate('/cursos/new')}>
+          <ButtonPrimary
+            onClick={() => navigate('/cursos/new')}
+            aria-label="agregar curso"
+          >
             Agregar curso
           </ButtonPrimary>
         </div>
-      </div>
+      </section>
 
       {courses.length > 0 && <TableClassroomComponent />}
     </>

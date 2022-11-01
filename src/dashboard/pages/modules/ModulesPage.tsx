@@ -17,7 +17,7 @@ export const ModulesPage = () => {
   return (
     <>
       <SearchComponent searchTitle="modulo" />
-      <div className="page-heade">
+      <section className="page-heade" aria-labelledby="title-content">
         <Title>Todos los modulos({modulos.length})</Title>
         <div className="actions">
           {modulosSelected.length > 0 && (
@@ -29,9 +29,9 @@ export const ModulesPage = () => {
             Agregar modulo
           </ButtonPrimary>
         </div>
-      </div>
+      </section>
 
-      <div className="data-table">
+      <section className="data-table" aria-label="table data">
         <div className="data-table__head">
           <span className="text-box-content">
             <input type="checkbox" disabled />
@@ -59,7 +59,7 @@ export const ModulesPage = () => {
             />
           );
         })}
-      </div>
+      </section>
     </>
   );
 };

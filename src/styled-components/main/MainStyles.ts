@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const MainSection = styled.section`
+export const MainSection = styled.section.attrs({
+  'aria-label': 'main',
+})`
   grid-area: main;
   overflow-y: auto;
   background-color: var(--bg);

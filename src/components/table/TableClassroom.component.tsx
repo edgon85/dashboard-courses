@@ -36,7 +36,7 @@ export const TableClassroomComponent = () => {
 
   return (
     <>
-      <div className="data-table">
+      <section className="data-table" aria-label="table data">
         <div className="data-table__head">
           <span className="text-box-content">
             <input
@@ -70,7 +70,7 @@ export const TableClassroomComponent = () => {
             <TableRow key={course.id} course={course} isSelected={isSelected} />
           );
         })}
-      </div>
+      </section>
     </>
   );
 };

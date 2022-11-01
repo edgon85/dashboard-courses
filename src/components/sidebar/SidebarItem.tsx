@@ -14,7 +14,7 @@ export const SidebarItem = ({ iconName, name, path }: SidebarItemProps) => {
 
   return (
     <>
-      <NavLink to={`${path}`} className="sidebar-item ">
+      <NavLink to={`${path}`} className="sidebar-item " aria-current="page">
         <div
           className={`sidebar-item__icon ${isSelected ? 'icon-selected' : ''}`}
         >

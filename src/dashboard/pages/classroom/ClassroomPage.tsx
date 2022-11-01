@@ -19,7 +19,7 @@ export const ClassroomPage = () => {
       <div className="classroom__content">
         <SearchComponent searchTitle="clases" />
 
-        <div className="page-heade">
+        <section className="page-heade" aria-labelledby="title-content">
           <Title>Todos las clases ({clases.length})</Title>
 
           <div className="actions">
@@ -33,9 +33,9 @@ export const ClassroomPage = () => {
               Agregar clase
             </ButtonPrimary>
           </div>
-        </div>
+        </section>
 
-        <div className="data-table">
+        <section className="data-table" aria-label="table data">
           <div className="data-table__head table-class">
             <span className="text-box-content">
               <input type="checkbox" disabled />
@@ -62,7 +62,7 @@ export const ClassroomPage = () => {
               />
             );
           })}
-        </div>
+        </section>
       </div>
     </>
   );

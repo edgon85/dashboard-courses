@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Title = styled.h3`
+export const Title = styled.h3.attrs({
+  id: 'title-content',
+})`
   font: var(--heading1);
   color: var(--black);
   padding: 0;
