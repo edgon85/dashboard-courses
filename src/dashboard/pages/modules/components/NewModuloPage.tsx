@@ -16,6 +16,7 @@ const INIT_FORM: Modulo = {
   name: '',
   slug: '',
   modulo: '',
+  title: '',
   order: 1,
 };
 
